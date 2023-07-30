@@ -15,10 +15,10 @@ Intall all the requirements below.
 
 Steps to run:
 Once at the libraries are installed:
-1)Docker will automatically pull the images if we navigate to the docker-compose.yml file and execute "docker-compose up" command but its adviced to download first for better functioning of application.
-2)Pull the local stack docker image at https://hub.docker.com/r/fetchdocker/data-takehome-localstack using the command from terminal - "docker pull fetchdocker/data-takehome-localstack".
-3)Pull the  postgresql docker image at https://hub.docker.com/r/fetchdocker/data-takehome-postgresusing the command from terminal - "docker pull fetchdocker/data-takehome-postgres".
-4)Navigate to the directory where docker-compose.yml is present and run the command "docker-compose up". 
+1) Docker will automatically pull the images if we navigate to the docker-compose.yml file and execute "docker-compose up" command but its adviced to download first for better functioning of application.
+2) Pull the local stack docker image at https://hub.docker.com/r/fetchdocker/data-takehome-localstack using the command from terminal - "docker pull fetchdocker/data-takehome-localstack".
+3) Pull the  postgresql docker image at https://hub.docker.com/r/fetchdocker/data-takehome-postgresusing the command from terminal - "docker pull fetchdocker/data-takehome-postgres".
+4) Navigate to the directory where docker-compose.yml is present and run the command "docker-compose up". 
 5) Do not close the terminal, keep the terminal running and open the new terminal.
 6) Inside new terminal navigate to the folder where "app.py" is located and run app.py using "python app.py" command.
 
