@@ -1,0 +1,35 @@
+Q1)How will you read messages from the queue?
+Ans) In order to read messages from the queue i have used Amazon SDK for python,boto3 it provided various inbuilt functions like client which can be used for reading messages from a queue.
+It has some parameters like maxnumberfmessages and waittimeeconds to specify the behavious of reading data from the queue.Oncethe message is reeceived it is later parsed as a json object for ease of use and better access of data.
+
+Q2)What type of data structures should be used?
+Ans)JSON,Hashmap(Dictionary),List are primarily used for the development.Json is used when reading data from an sqs queue and parsing it as json object.
+Hashmaps are used for postgresql connection,many key value matchings and for data extracted from json objects.
+List is used in many parts of the  application for storage of data.
+
+Q3)How will you mask the PII data so that duplicate values can be identified
+Ans) Once the required data is extracted and its present in the form of json objeect before storing it into the data base the data is masked using SHA 256 hashing using pyhthons inbuilt hashlib library.
+
+Q4)What will be your strategy for connecting and writing to Postgres?
+Ans)First extract the data from the queue using boto3 and then parse the data as a json object,later i used pythons cursor object to execute queries for writing into db and creating db tables and used psycopg2 library to connect to the database.Masked few important data using SHA 256 hasing.
+
+Q5)Where and how will your application run?
+Ans)Detailed information is provided in the ReadMe file.It runs using python with dependencies installed and docker.
+
+Q7)How would you deploy this application in production?
+Ans)Setup production env like AWS,setup infrastructure like docker,AWSsqs,setup postgresql database in Amazon RDS,add a version control like git,gathering all dependencies into requirements.txt
+store sensitve information zsecurly usingaws secret manager or similar tools,config postgressql tables and other configurations,config aws,deployment using web servers like apache or nginx,monitoring and testing and also use various techniques like load balancing to scale makes this application production ready.
+
+Q8)How can this application scale with a growing dataset?
+Ans)Database indexing,Distributed queus like kafka,Connection pooling,vertical scaling,Auto scaling,caching,Sharding by usig these techniques.
+
+Q9)How can PII be recovered later on?
+Ans)Connect to the PostgreSQL database using the psycopg2 module.
+Write a query to select the data from the table. The query should include the masked_ip and masked_device_id columns.Execute the query and fetch the results.
+Iterate through the results and print the masked data.We can use the UNMASK function to unmask the masked data. The UNMASK function takes the column name as an argument and returns the original value of the column.
+
+Q10)What are the assumptions you made?
+Ans)The message should be deleted once its read from the queue.
+the data is specifically restricted to json format.
+the appversion is stored as varchar in the database.
+

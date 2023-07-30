@@ -1,0 +1,15 @@
+version: "2.4"
+services:
+  localstack:
+    image: fetchdocker/data-takehome-localstack
+    ports:
+      - "4566:4566"  # SQS port
+    environment:
+      - SERVICES=sqs
+      - DEBUG=1
+
+  postgres:
+    image: fetchdocker/data-takehome-postgres
+    ports:
+      - "5432:5432"  # Postgres port
+
